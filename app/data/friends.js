@@ -1,3 +1,6 @@
+// the possible friends
+// they're all Steven Universe characters
+// I tried to answer as accurately as I could figure for each person
 var friends = [
     {name: "Lapis Lazuli",
     photo: "https://66.media.tumblr.com/d2ccc5dae679ed0244d26c3f13a53e46/tumblr_pb7gtrTYQ41v5pucyo1_250.png",
@@ -28,4 +31,5 @@ var friends = [
     scores: [1, 2, 2, 5, 1, 1, 1, 4, 1, 2]}
 ];
 
+// exports the friends array containing all the friend objects
 module.exports = friends;

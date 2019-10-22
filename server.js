@@ -10,9 +10,11 @@ var PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-var apiRoutes = require("./app/routing/apiRoutes");
-var htmlRoutes = require("./app/routing/htmlRoutes");
+// require the app.get and app.post stuff from the routing files
+require("./app/routing/apiRoutes")(app);
+require("./app/routing/htmlRoutes")(app);
 
+// console.log the port the server is listening on
 app.listen(PORT, function() {
     console.log("Server listening on: http://localhost:" + PORT);
 });
