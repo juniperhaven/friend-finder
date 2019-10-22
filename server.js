@@ -7,7 +7,7 @@ var app = express();
 var PORT = process.env.PORT || 3000;
 
 // set up for express to handle data parsing
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
 // require the app.get and app.post stuff from the routing files

@@ -10,8 +10,8 @@ module.exports = function(app) {
         var html = "<h1>Possible Friends</h1>"
 
         for(var i = 0; i < friends.length; i++) {
-            html += "<p>Name: "+friends[i].name+"</p>"
-            html += "<img src = "+friends[i].photo+">"
+            html += "<p>Name: " + friends[i].name + "</p>"
+            html += "<img src = " + friends[i].photo + ">"
         }
 
         res.send(html);
@@ -31,14 +31,14 @@ module.exports = function(app) {
 
             // I added this because presumably, if you enter yourself twice, you'll put in the same name and profile picture. this ensures that if your closest match would end up being yourself, you...won't match with yourself.
             // I did "same name and picture link" because I don't want to prevent two people matching if they happen to, say, have the same first name and only enter that first name.
-            // it is true that if you enter a different name or a different profile picture the second time around, but the same answers, you'll still match with yourself, but listen, I can't plan for everything.
+            // it is true that if you enter a different name or a different profile picture but the same answers for yourself the second time around, you'll still match with yourself, but listen, I can't plan for everything, and at that point I feel like you're making a deliberate attempt to match with yourself anyway.
             if(user.name === friends[i].name && user.photo === friends[i].photo) {
                 i++
             }
             else {
                 for(var j = 0; j < userScores.length; j++) {
                     // math.abs to ensure that the difference always comes out to a positive number
-                    diff += Math.abs(friends[i].scores[j]-userScores[j]);
+                    diff += Math.abs(friends[i].scores[j] - userScores[j]);
                 }
 
                 // this checks for if the difference between you and the currently being checked person is less than the total difference
