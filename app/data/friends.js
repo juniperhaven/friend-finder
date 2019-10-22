@@ -1,6 +1,8 @@
 // the possible friends
 // they're all Steven Universe characters
 // I tried to answer as accurately as I could figure for each person
+// all the photos are actual image links to cropped icons from the show rather than actual saved images, because...that felt easier at the time?
+// I might change it later so that they're kept in an actual images folder.
 var friends = [
     {name: "Lapis Lazuli",
     photo: "https://66.media.tumblr.com/d2ccc5dae679ed0244d26c3f13a53e46/tumblr_pb7gtrTYQ41v5pucyo1_250.png",
