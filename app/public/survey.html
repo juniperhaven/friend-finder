@@ -105,18 +105,25 @@
 <script type="text/javascript">
     // once information is submitted, grab the information as an object
 	$("#submit").on("click", function(){
+        var link = $("#pic").val().trim();
+        var endsIn = link.substring(link.length - 3);
+
         // checks that you at least entered SOMETHING for a name, because you have to
         if($("#name").val().trim() === "") {
             event.preventDefault();
             alert("You must enter a name.");
         }
-        // checks that you entered a url that links to an image, because you have to
-        else if ($("#pic").val().trim() === "" || !$("#pic").val().trim().includes("http" || "https") || !$("#pic").val().trim().endsWith("jpg" || "png" || "jpeg")) {
+        // checks that you entered a url that at least theoretically links to an image
+        // 'endsWith' only executes once, as far as I could tell, although it's possible I was doing it wrong, but either way I couldn't get it to work checking for multiple possible string endings
+        // so instead, for png and jpg, since they're the same length, I got the last three letters of the picture link string and checked if it was either of those
+        // then I used 'endsWith' for jpeg, since that's a longer string and I couldn't use the same method for it
+        else if ($("#pic").val().trim() === "" || !$("#pic").val().trim().includes("http" || "https") || endsIn != "png" && endsIn != "jpg" && !link.endsWith("jpeg")) {
             event.preventDefault();
             alert("You must enter a valid profile picture URL.");
         }
         // checks that you answered every question, because again, you have to
-        else if(!$("input[type=radio]:checked").length === 10) {
+        // for some reason setting this as just '=== 10' doesn't work. so. fuck it I guess
+        else if(!($("input[type=radio]:checked").length >= 10)) {
             event.preventDefault();
             alert("You must answer all questions.");
         }
@@ -157,7 +164,7 @@
             // empties the survey
             $("#name").val("");
             $("#pic").val("");
-            $("input[type=radio]").attr("checked", false);
+            $("input[type=radio]").prop("checked", false);
         }
     });
 </script>
