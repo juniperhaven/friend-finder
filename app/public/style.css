@@ -1,0 +1,7 @@
+/* I hate Times New Roman, which is what auto-loads on Chrome, and possibly other browsers. */
+/* it bothers me SO MUCH that I can't get this to apply to the api/friends thing. */
+/* Times New Roman is the worst font. I had to write so many essays in that font. it's the worst font. fuck Times New Roman. */
+body {
+    font-family: Arial, sans-serif !important;
+    font-size: 14px;
+}

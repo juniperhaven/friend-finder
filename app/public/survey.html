@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <title>Friend Finder Survey</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+        <link rel="stylesheet" type="text/css" href="/style.css"/>
     </head>
 
     <body>
@@ -105,13 +105,13 @@
 <script type="text/javascript">
     // once information is submitted, grab the information as an object
 	$("#submit").on("click", function(){
-        // checks that you entered something for a name, because you have to
+        // checks that you at least entered SOMETHING for a name, because you have to
         if($("#name").val().trim() === "") {
             event.preventDefault();
             alert("You must enter a name.");
         }
-        // checks that you entered a valid url for a picture, because you have to
-        else if ($("#pic").val().trim() === "" || !$("#pic").val().trim().includes("http" || "https")) {
+        // checks that you entered a url that links to an image, because you have to
+        else if ($("#pic").val().trim() === "" || !$("#pic").val().trim().includes("http" || "https") || !$("#pic").val().trim().endsWith("jpg" || "png" || "jpeg")) {
             event.preventDefault();
             alert("You must enter a valid profile picture URL.");
         }

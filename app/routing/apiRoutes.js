@@ -5,12 +5,12 @@ var friends = require("../data/friends");
 // export the app.get and app.post things
 module.exports = function(app) {
     // get the friends api, which prints out all the people in the friends array as html
-    // to do: try and include some css to make things pretty?
     app.get("/api/friends", function(req, res) {
-        var html = "<h1>Possible Friends</h1>"
+        var html = "<h1 id='text'>Possible Friends</h1>"
+        html += "<a href='/'><button type='button'>Home</button></a>";
 
         for(var i = 0; i < friends.length; i++) {
-            html += "<p>Name: " + friends[i].name + "</p>"
+            html += "<p id='text'>Name: " + friends[i].name + "</p>"
             html += "<img src = " + friends[i].photo + ">"
         }
 
